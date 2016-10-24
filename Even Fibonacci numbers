@@ -1,0 +1,25 @@
+Cada nuevo término en la sucesión de Fibonacci se genera mediante la adición de los 
+dos términos anteriores. Al comenzar con 1 y 2, los 10 primeros términos serán los siguientes:
+
+1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+
+Al tener en cuenta los términos de la sucesión de Fibonacci cuyos valores no 
+superan los cuatro millones, hallar la suma de los términos más valorados.
+
+-- Formula para represtarn el fibbonacci que es sumar el valor de su antecesor 
+fibbonacci 0 = 0
+fibbonacci 1 = 1
+fibbonacci x = fibbonacci (x - 1) + fibbonacci (x - 2)
+ 
+ 
+ -- ingreso un valor entero que tendra un valor boleano, quiero que me muestro todos los numero que son residuos de 2 de todos los pares que
+ -- tenga en mi lista todos los immpares y que no sean residuales seran malos en este caso Else
+isEven :: (Integral a) => a -> Bool
+isEven a
+   | mod a 2 == 0 = True
+   | otherwise = False
+   
+   -- una vez echo hacemos nuestro main en el cual le pediremos que nos de el resultado  de la suma de los valores que son residuales de 2 
+   -- que no supere los 4 000 000 
+main :: IO ()
+main = putStrLn $ show $ sum $ filter isEven $ takeWhile (<4000000) $ map fibbonacci [1..]
